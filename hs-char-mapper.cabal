@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hs-char-mapper
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/kenho811/hs-char-mapper#readme>
+homepage:       https://github.com/kenho811/hs-char-mapper#readme
+bug-reports:    https://github.com/kenho811/hs-char-mapper/issues
+author:         ken.ho
+maintainer:     kenho811job@gmail.com
+copyright:      ken.ho
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/kenho811/hs-char-mapper
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_hs_char_mapper
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , text
+    , vector
+  default-language: Haskell2010
+
+executable hs-char-mapper-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hs_char_mapper
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , hs-char-mapper
+    , text
+    , vector
+  default-language: Haskell2010
+
+test-suite hs-char-mapper-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hs_char_mapper
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , cassava
+    , containers
+    , hs-char-mapper
+    , text
+    , vector
+  default-language: Haskell2010
