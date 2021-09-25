@@ -1,19 +1,19 @@
-{-# LANGUAGE ScopedTypeVariables #-}
+-- {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE PackageImports #-}
-
+{-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
-import "hs-char-mapper" Lib ( someFunc )
+import Lib ( someFunc )
 
 import qualified Data.Map as Map
-import qualified Data.Vector
-import qualified Data.Text
-
-
-import qualified Data.ByteString.Lazy as BL
-import Data.Csv ( decode, HasHeader(NoHeader) )
+import qualified Data.Text as T
+import qualified Data.String
 import qualified Data.Vector as V
+import qualified Data.ByteString.Lazy as BL
+
+import Data.Csv ( encode,decode, HasHeader(NoHeader) )
+import Data.List ()
 
 -- codePointsMapper
 -- Source:https://unicodelookup.com/
@@ -27,6 +27,15 @@ csvFile :: FilePath
 
 csvFile = "mappings.copy.csv"
 
+list:: [(T.Text, Int)]
+list = [("John" :: T.Text, 27), ("Jane", 28)]
+
+byteCode :: BL.ByteString
+byteCode = encode Main.list
+
+myEither :: Either String (V.Vector (T.Text, Int))
+myEither = decode NoHeader "John,27\r\nJane,28\r\n" :: Either String (V.Vector (T.Text, Int))
+
 main :: IO ()
 main = do
     let val = Map.lookup 2 codePointsMapper
@@ -36,3 +45,7 @@ main = do
             Left err -> putStrLn err
             Right v -> V.forM_ v $ \ (name, salary) ->
                 putStrLn $ name ++ " earns " ++ salary ++ " dollars"
+    someFunc
+    print byteCode
+    print myEither
+
