@@ -25,8 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
-      DefaultMap
+      CsvLoader
+      , DefaultMap
   other-modules:
       Paths_hs_char_mapper
   hs-source-dirs:

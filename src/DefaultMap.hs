@@ -1,12 +1,4 @@
-module DefaultMap (
-    DefaultMap
-    , fromMap
-    , toMap
-    , DefaultMap.lookup
-    , sampleMap
-)
-
-where 
+module DefaultMap where 
 
 import qualified Data.Map as Map 
 import Data.Maybe ( fromMaybe )
@@ -31,7 +23,7 @@ toMap DefaultMap {defVal = defVal, map = map } = map
 
 
 -- | Lookup in DefaultMap. Return default when value not found in the normal Map
-lookup :: (Ord k, Num v) => k -> DefaultMap k v -> v
+lookup :: (Ord k) => k -> DefaultMap k v -> v
 lookup k DefaultMap {defVal = defVal, map = map} = Data.Maybe.fromMaybe defVal (Map.lookup k map)
 
 sampleMap :: (Ord a, Num a, Num b) => Map.Map a b
