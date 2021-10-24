@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      DefaultMap
   other-modules:
       Paths_hs_char_mapper
   hs-source-dirs:
@@ -37,7 +38,12 @@ library
     , containers
     , text
     , vector
+    , with-utf8
+    , utf8-string
   default-language: Haskell2010
+  default-extensions: OverloadedStrings
+                      , RecordWildCards
+                      , ScopedTypeVariables
 
 executable hs-char-mapper-exe
   main-is: Main.hs
@@ -52,6 +58,8 @@ executable hs-char-mapper-exe
     , hs-char-mapper
     , text
     , vector
+    , with-utf8
+    , utf8-string
   default-language: Haskell2010
 
 test-suite hs-char-mapper-test
@@ -70,4 +78,6 @@ test-suite hs-char-mapper-test
     , hs-char-mapper
     , text
     , vector
+    , with-utf8
+    , utf8-string
   default-language: Haskell2010
