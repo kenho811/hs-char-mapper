@@ -1,7 +1,7 @@
 # Mapper between UTF-8 compliant characters
 
 ### Summary
-- Given a string, convert each of the latin character to germanic character. Return the string
+- Given a string, convert each of character to another character as specified by the character mappings in `mappings.csv`.
 
 
 ### Installation
@@ -15,4 +15,5 @@
   - Each line must contain only 2 records. They two records must be separated by a comma.
   - Each record on each line must be a single character.
   - Each Character must be UTF-8 compliant.
+  - The first record is the character to convert from, while the second record is the character to convert to.
 3. See `sample_mappings.csv` as an example
