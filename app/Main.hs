@@ -36,12 +36,13 @@ loadMappingsWithDefault:: ToSymbol -> FileName -> IO (Either String (DefaultMap.
 loadMappingsWithDefault = initMappings
 
 -- | Map multi-char string to text
+-- Steps are (a) convert each char to text, (b) find correspoding symbol, (c) strip all white space.
+-- (d) concat all texts in a list back together
 getMappedLine :: String -> DefaultMap.DefaultMap FromSymbol ToSymbol ->  T.Text
-getMappedLine str defaultMap = T.concat $ fmap (DefaultMap.lookup' defaultMap . T.singleton) str
+getMappedLine str defaultMap = T.concat $ fmap (T.strip . DefaultMap.lookup' defaultMap . T.singleton) str
 
--- getMappedLine2 :: String ->  T.Text
--- getMappedLine2 str = T.concat $ fmap T.singleton str
 
+-- | For testing mapping symbols
 getMappedSymbolMsg :: FromSymbol -> IO()
 getMappedSymbolMsg fromSymbol = withUtf8 $ do
     eitherMappings <- loadMappingsWithDefault defaultSymbol fileName
@@ -51,21 +52,20 @@ getMappedSymbolMsg fromSymbol = withUtf8 $ do
                              where result = DefaultMap.lookup fromSymbol defaultMap
 
 
-
-
-
 main :: IO ()
 main = do
-    putStrLn "Please enter a line."
+    putStrLn ">>>Please enter a line."
     str <- getLine
-    -- myText <- fmap T.pack str
 
     -- Load the mappings with default symbol and file name
     eitherMappings <- loadMappingsWithDefault defaultSymbol fileName
-    -- putStrLn "a"
 
+    putStrLn ">>>Output:"
     case eitherMappings of
         Left err -> TIO.putStrLn "Something is wrong while reading the file"
         Right defaultMap -> TIO.putStrLn result
                             where result = getMappedLine str defaultMap
 
+    putStrLn ">>>Press enter to close"
+    nul <- getLine
+    putStrLn "bye"
