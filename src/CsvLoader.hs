@@ -22,13 +22,10 @@ type FileName = String
 type FromSymbol = T.Text 
 type ToSymbol = T.Text
 
--- | Set defaultSymbol to a Space 
-defaultSymbol :: ToSymbol
-defaultSymbol = " "
 
 -- | Get the mappings from a CSV file and turn it into a DefaultMap for lookup
-initMappings :: FileName -> IO(Either String (DefaultMap.DefaultMap FromSymbol ToSymbol))
-initMappings fileName = withUtf8 $ do
+initMappings :: ToSymbol -> FileName -> IO(Either String (DefaultMap.DefaultMap FromSymbol ToSymbol))
+initMappings defaultSymbol fileName = withUtf8 $ do
   -- read content of file as ByteString
   csvData <- BL.readFile fileName
   -- transform the right vector to right Map
@@ -39,7 +36,8 @@ initMappings fileName = withUtf8 $ do
 -- | Print the mappings from the CSV file
 previewMappings :: FileName -> IO()
 previewMappings fileName = withUtf8 $ do
-    eitherMap <- initMappings fileName
+    let dummyDefaultSymbol = " "
+    eitherMap <- initMappings dummyDefaultSymbol fileName
     case eitherMap of
       Left err -> putStrLn err
       Right (DefaultMap.DefaultMap defVal map) -> mapM_ (\(key, val) -> TIO.putStrLn $ mconcat [key, " --> ", val]) $ Map.toList map

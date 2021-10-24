@@ -26,6 +26,10 @@ toMap DefaultMap {defVal = defVal, map = map } = map
 lookup :: (Ord k) => k -> DefaultMap k v -> v
 lookup k DefaultMap {defVal = defVal, map = map} = Data.Maybe.fromMaybe defVal (Map.lookup k map)
 
+-- | Inverted version of lookup
+lookup' :: (Ord k) => DefaultMap k v -> k -> v
+lookup' = flip DefaultMap.lookup
+
 sampleMap :: (Ord a, Num a, Num b) => Map.Map a b
 sampleMap = Map.fromList [(1, 10), (2,20), (3, 30)]
 
