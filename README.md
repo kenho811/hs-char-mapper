@@ -1,3 +1,5 @@
+Link to repository's master branch : https://github.com/kenho811/hs-char-mapper/tree/master
+
 # Mapper between UTF-8 compliant characters
 
 ### Summary
