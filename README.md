@@ -17,3 +17,11 @@
   - Each Character must be UTF-8 compliant.
   - The first record is the character to convert from, while the second record is the character to convert to.
 3. See `sample_mappings.csv` as an example
+
+### Example
+- Suppose we are using the mappings in the `sample_mappings.csv` file.
+- When we run the executatable, we will be prompted to enter a line which we want to get translated.
+- Each of the character in the line will then be translated by referencing the `mappings.csv` file.
+- The image below shows the result in the Windows cmd terminal.
+
+![image](https://user-images.githubusercontent.com/57944769/138584924-be81705c-f1f3-4988-b681-0bb4d54d71f3.png)
