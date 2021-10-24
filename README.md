@@ -3,7 +3,7 @@ Link to repository's master branch : https://github.com/kenho811/hs-char-mapper/
 # Mapper between UTF-8 compliant characters
 
 ### Summary
-- Given a string, convert each of character to another character as specified by the character mappings in `mappings.csv`.
+- Given a string, convert each character to another character as specified in `mappings.csv`.
 
 
 ### Installation
@@ -27,3 +27,5 @@ Link to repository's master branch : https://github.com/kenho811/hs-char-mapper/
 - The image below shows the result in the Windows cmd terminal.
 
 ![image](https://user-images.githubusercontent.com/57944769/138584924-be81705c-f1f3-4988-b681-0bb4d54d71f3.png)
+
+Legend: User input `it is cold today` is translated to `ᛁ ᛏᛁ ᛋᚳᚩᛚ ᛞᛏᚩᛞᚪ` by referencing the file `mappings.csv`
