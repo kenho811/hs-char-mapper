@@ -23,7 +23,7 @@ Click [here](https://github.com/kenho811/hs-char-mapper/tree/master
   - The first record is the character to convert from, while the second record is the character to convert to.
 3. See `sample_mappings.csv` as an example
 
-### Example
+### Example (CLI application)
 - Suppose we are using the mappings in the `sample_mappings.csv` file.
 - When we run the executatable, we will be prompted to enter a line which we want to get translated.
 - Each of the character in the line will then be translated by referencing the `mappings.csv` file.
@@ -32,3 +32,6 @@ Click [here](https://github.com/kenho811/hs-char-mapper/tree/master
 ![image](https://user-images.githubusercontent.com/57944769/138584924-be81705c-f1f3-4988-b681-0bb4d54d71f3.png)
 
 Legend: User input `it is cold today` is translated to `ᛁ ᛏᛁ ᛋᚳᚩᛚ ᛞᛏᚩᛞᚪ` by referencing the file `mappings.csv`
+
+### Example (GUI Application)
+- Coming soon
