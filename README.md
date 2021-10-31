@@ -1,4 +1,7 @@
-Link to repository's master branch : https://github.com/kenho811/hs-char-mapper/tree/master
+
+Click [here](https://github.com/kenho811/hs-char-mapper/tree/master
+) to view my repository's master branch
+
 
 # Mapper between UTF-8 compliant characters
 
