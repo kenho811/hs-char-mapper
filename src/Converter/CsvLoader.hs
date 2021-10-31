@@ -1,4 +1,6 @@
-module CsvLoader where
+module Converter.CsvLoader where
+
+import qualified Converter.DefaultMap as DefaultMap
 
 import Main.Utf8 ( withUtf8 )
 
@@ -14,7 +16,6 @@ import qualified Data.ByteString as B
 import qualified Data.Text.Encoding as TE
 import qualified Data.Text.Lazy.Encoding as TEL
 
-import DefaultMap ( DefaultMap(DefaultMap), fromMap )
 
 import Data.Csv ( encode,decode, HasHeader(NoHeader) )
 
